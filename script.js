@@ -2,6 +2,7 @@ let birthDate = document.querySelector("#brthDay");
 let luckyNum = document.querySelector("#luckyNo");
 let CheckButton = document.querySelector(".chckBtn");
 let finalMessage = document.querySelector(".message");
+let luckyNumber = "", totalsum = "";
 
 function getBirthDateNumber(dob) {
     let updatedDob = dob.replaceAll("-", "");
@@ -22,17 +23,21 @@ function compareNum(dobNumber, LuckyNumber) {
 
 document.querySelector(".chckBtn").addEventListener("click", () => {
     //get birth Date number
-    console.log(birthDate.value);
-    let totalsum = getBirthDateNumber(birthDate.value);
-    console.log(totalsum);
-
-    //get lucky Number
-    let luckyNumber = compareNum(totalsum, luckyNum.value);
-
-    //compare birth date number with lucky Number
-    if (luckyNumber) {
-        finalMessage.innerHTML = "yey your birth day is lucky!!";
+    if (birthDate.value !== "" && luckyNum.value !== "") {
+        totalsum = getBirthDateNumber(birthDate.value.toString());
+        //get lucky Number
+        luckyNumber = compareNum(totalsum, luckyNum.value);
+        //compare birth date number with lucky Number
+        if (luckyNumber) {
+            finalMessage.innerHTML = "yey 😄 , your birth day is lucky!!";
+        } else {
+            finalMessage.innerHTML = "Oops 😶 , your birth day is not so lucky!!";
+        }
     } else {
-        finalMessage.innerHTML = "Oops your birth date is not lucky!!";
+        if (birthDate.value === "") {
+            finalMessage.innerHTML = "Please select Date from DOB";
+        } else if (luckyNum.value === "") {
+            finalMessage.innerHTML = "Please enter your lucky number to proceed";
+        }
     }
 });
