@@ -15,7 +15,7 @@ function getBirthDateNumber(dob) {
 }
 
 function compareNum(dobNumber, LuckyNumber) {
-    if (dobNumber == LuckyNumber) {
+    if (dobNumber % LuckyNumber === 0) {
         return true;
     }
     return false;
