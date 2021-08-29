@@ -51,7 +51,7 @@ input:hover {
 }
 
 .btn {
-    margin-top: 4%;
+    margin-top: 2%;
     margin-bottom: 4%;
     border-radius: 0.5em;
     padding: 4px 5px;
@@ -79,4 +79,8 @@ h1 {
     font-size: 1.1em; 
     color: var(--primary-color);
     text-shadow: 1px 1px 1px black;
+}
+
+.impMsg {
+    margin-bottom: 1%;
 }
